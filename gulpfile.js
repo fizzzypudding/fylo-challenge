@@ -4,7 +4,7 @@ const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 // const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-const imagemin = require('gulp-imagemin');
+// const imagemin = require('gulp-imagemin');
 const terser = require('gulp-terser');
 const browsersync = require('browser-sync').create();
 
@@ -33,11 +33,11 @@ function jsTask(){
 }
 
 // Imagemin Task
-function imageTask(){
-  return src('app/images/*')
-    .pipe(imagemin())
-    .pipe(dest('dist/images'))
-}
+// function imageTask(){
+//   return src('app/images/*')
+//     .pipe(imagemin())
+//     .pipe(dest('dist/images'))
+// }
 
 
 // Browsersync Task
@@ -66,7 +66,7 @@ exports.default = series(
   pugTask,
   sassTask,
   jsTask,
-  imageTask,
+  // imageTask,
   browsersyncServe,
   watchTask
 );

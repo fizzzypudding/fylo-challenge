@@ -10,10 +10,10 @@ body
   padding: 0
   line-height: 1.3
   font-size: $font-sm
-  font-weight: 300
-  color: $grayishBlue
-  font-family: 'Public Sans', sans-serif
-  background-color: $veryLightColor
+  font-weight: $font-regular
+  color: $whiteColor
+  font-family: $font-openSans
+  background-color: $darkBlue_mainBg
   overflow-x: hidden
 
   +breakpoint-up(large)
@@ -26,7 +26,7 @@ h2,h3,h4
   margin-top: 0
   line-height: 1.15
   font-weight: 300
-  color: $darkBlue
+  color: $whiteColor
 
 h2
   font-size: 2.31rem
@@ -53,14 +53,14 @@ h4
 
 a, a:visited, a:hover
   text-decoration: none
-  color: $grayishBlue
+  color: $whiteColor
 
 .attribution
   font-size: 11px 
   text-align: center
   a 
     position: relative
-    color: hsl(228, 45%, 44%)
+    color: $Cyan
     transition: .3s
     &::before
       content: ""
@@ -69,7 +69,7 @@ a, a:visited, a:hover
       left: 0
       width: 0px
       height: 1.5px
-      background-color: hsl(228, 45%, 44%)
+      background-color: $Cyan
       transition: .3s
     &:hover::before
       width: 100%
