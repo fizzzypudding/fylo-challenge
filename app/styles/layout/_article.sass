@@ -1,0 +1,62 @@
+.article
+  background-color: $veryLightColor
+  &.container
+    padding: 
+      top: 6rem
+      bottom: 5rem
+  &__title
+    text-align: center
+    margin-bottom: 2.5rem
+    +breakpoint-up(large)
+      margin-bottom: 3.75rem
+  &__grid
+    display: grid
+    grid-template-columns: 1fr
+    gap: 1.5rem
+    +breakpoint-up(medium)
+      grid-template-columns: repeat(2, 1fr)
+    +breakpoint-up(large)
+      grid-template-columns: repeat(4, 1fr)
+      gap: 1.875rem
+
+  &__card
+    display: inline-block
+    background-color: $whiteColor
+    overflow: hidden
+    border-radius: 0.3125rem
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.2)
+    transition: ease-in-out .3s
+    &:hover
+      transform: scale(1.02)
+      box-shadow: 0px 3px 12px rgba(0,0,0,0.1)
+    
+.card
+  &__image
+    height: 12.5rem
+    background-size: cover
+    background-position: center center
+    background-repeat: no-repeat  
+  &__body
+    padding: 1.875rem 1.875rem 2.875rem 1.875rem
+    color: $grayishBlue
+    +breakpoint-up(large)
+      padding: 1.625rem
+  &__title
+    font-size: 1.0625rem
+    line-height: 1.2
+    color: $darkBlue
+    margin-bottom: 1rem
+    margin-top: 1rem
+    transition: ease-in-out .3s
+    +breakpoint-up(large)
+      margin-bottom: 0.75rem
+      margin-top: 0.75rem
+    &:hover
+      color: $limeGreen
+
+  &__author
+    font-size: 0.625rem
+    
+  &__description
+    font-size: 0.8125rem
+

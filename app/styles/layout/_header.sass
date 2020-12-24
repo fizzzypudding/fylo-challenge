@@ -1,0 +1,105 @@
+.header
+  background-color: $whiteColor
+  // overflow: hidden
+  position: relative
+  z-index: 1
+  
+  &__logo a
+    display: block
+    width: 144px
+    height: 22px
+    text-indent: 150%
+    overflow: hidden
+    white-space: nowrap
+    background-image: url('/images/logo.svg')
+    background-repeat: no-repeat
+    background-position: center center
+
+  // Hamburger Open Styles
+  &.open
+
+    .header__toggle
+      > span:first-child
+        transform: rotate(45deg)
+
+      > span:nth-child(2)
+        opacity: 0
+
+      > span:last-child
+        transform: rotate(-45deg)
+
+  &__toggle  //mobile menu toggle
+    display: none
+    +breakpoint-down(medium)
+      display: block
+      > span
+        display: block
+        width: 24px
+        height: 1.5px
+        background-color: $darkBlue
+        transition: all .3s ease-in-out
+        transform-origin: 3px 1px
+
+        &:not(:last-child)
+          margin-bottom: 5px
+
+
+  .overlay
+    // opacity: 0
+    position: fixed
+    top: 70px
+    right: 0
+    bottom: 0
+    left: 0
+    background-image: linear-gradient($darkBlue,transparent)
+
+  nav
+    position: relative
+    background-color: $whiteColor
+
+  &__menu
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    width: calc( 100% - 3rem )
+    background-color: $whiteColor
+    padding: 1.625rem
+    border-radius: 5px
+    a
+      display: block
+      padding: 0.625rem
+      color: $darkBlue
+      text-align: center
+  
+
+  &__links //desktop menu
+    li
+      &:not(:last-child)
+        margin-right: 32px
+    a
+      position: relative
+      font-size: $font-sm
+      transition: .3s
+      &:hover
+        color: $darkBlue
+      &::before
+        content: ""
+        display: inline-block
+        position: absolute
+        top: 49px
+        left: 0px
+        height: 6px
+        width: 0%
+        background-color: $limeGreen
+        transition: .3s
+      &:hover::before
+        width: 100%
+
+
+    +breakpoint-down(medium)
+      display: none
+
+  &__btn
+    +breakpoint-down(medium)
+      display: none
+

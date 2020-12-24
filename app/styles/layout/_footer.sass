@@ -1,0 +1,41 @@
+.footer
+  background-color: $darkBlue
+  +breakpoint-down(medium)
+    text-align: center
+
+  &__social
+    margin-bottom: 2.375rem
+    margin-top: 3.437rem
+    +breakpoint-down(medium)
+      margin-top: 2.125rem
+    > li:not(:last-child)
+      margin-right: 14px
+    a
+      svg path
+        transition: .3s
+      &:hover svg path
+        fill: $limeGreen
+
+
+  &__menu
+    font-size: $font-sm
+    height: 110px
+    li
+      margin-bottom: 1.25rem
+      // +breakpoint-down(medium)
+      //   margin-bottom: 1.25rem
+    a
+      color: $whiteColor
+      font-weight: 300
+      transition: .3s
+      &:hover
+        color: $limeGreen
+
+
+  &__btn
+    margin-bottom: 30px
+    +breakpoint-down(medium)
+      margin-top: 1.125rem
+  
+  &__copyright
+    font-size: $font-sm

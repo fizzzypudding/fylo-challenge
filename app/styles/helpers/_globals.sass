@@ -1,0 +1,77 @@
+html
+  font-size: 100%
+  box-sizing: border-box
+
+*,*::before,*::after
+  box-sizing: inherit
+
+body
+  margin: 0
+  padding: 0
+  line-height: 1.3
+  font-size: $font-sm
+  font-weight: 300
+  color: $grayishBlue
+  font-family: 'Public Sans', sans-serif
+  background-color: $veryLightColor
+  overflow-x: hidden
+
+  +breakpoint-up(large)
+    font-size: $font-med
+
+  &.noscroll
+    overflow: hidden
+
+h2,h3,h4
+  margin-top: 0
+  line-height: 1.15
+  font-weight: 300
+  color: $darkBlue
+
+h2
+  font-size: 2.31rem
+  margin-bottom: 1.5rem
+
+  +breakpoint-up(large)
+    font-size: $font-xlg
+
+h3
+  font-size: 1.875rem
+  margin-bottom: 1.5625rem
+
+  +breakpoint-up(large)
+    font-size: 2.25rem
+    margin-bottom: 2.25rem
+
+h4
+  font-size: 1.25rem
+  margin-bottom: 1.625rem
+  +breakpoint-up(large)
+    font-size: 1.5rem
+    margin-bottom: 1.5rem
+
+
+a, a:visited, a:hover
+  text-decoration: none
+  color: $grayishBlue
+
+.attribution
+  font-size: 11px 
+  text-align: center
+  a 
+    position: relative
+    color: hsl(228, 45%, 44%)
+    transition: .3s
+    &::before
+      content: ""
+      position: absolute
+      bottom: -3px
+      left: 0
+      width: 0px
+      height: 1.5px
+      background-color: hsl(228, 45%, 44%)
+      transition: .3s
+    &:hover::before
+      width: 100%
+
+      

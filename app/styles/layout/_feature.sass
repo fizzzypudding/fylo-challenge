@@ -1,0 +1,35 @@
+.feature
+  background-color: $lightGrayishBlue
+  text-align: center
+  +breakpoint-up(large)
+    text-align: left
+    
+  .container
+    padding-top: 4.375rem
+    padding-bottom: 3.125rem
+    +breakpoint-up(large)
+      padding-top: 6.875rem
+      padding-bottom: 5.625rem
+
+  &__intro
+    margin-bottom: 2.5rem
+    +breakpoint-up(large)
+      margin-bottom: 4.813rem
+
+  &__text
+    line-height: 1.5
+  &__item
+    padding-top: 1.25rem
+    padding-bottom: 1.25rem
+
+  .item__icon
+    margin-bottom: 1.875rem
+    +breakpoint-up(large)
+      margin-bottom: 2.875rem
+  .item__description
+    font-size: 0.875rem
+    line-height: 1.5
+    // margin-bottom: 2.5rem
+
+    // +breakpoint-up(large)
+    //   margin-bottom: 0

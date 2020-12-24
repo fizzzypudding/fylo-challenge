@@ -1,0 +1,221 @@
+// Mixin
+=d-flex($d:flex,$jc:center,$ai:center,$fd:row)
+  display: $d
+  justify-content: $jc
+  align-items: $ai
+  flex-direction: $fd
+
+=mx($r,$l:$r)
+  margin-right: $r
+  margin-left: $l
+
+=px($r,$l:$r)
+  padding-right: $r
+  padding-left: $l
+
+=generate($pro,$side,$spaceValue)
+  @if $side == ''
+    @if $pro == 'm'
+      margin: $spaceValue !important
+    @if $pro == 'p'
+      padding: $spaceValue !important
+  @if $side == 't'
+    @if $pro == 'm'
+      margin-top: $spaceValue !important
+    @if $pro == 'p'
+      padding-top: $spaceValue !important
+  @if $side == 'b'
+    @if $pro == 'm'
+      margin-bottom: $spaceValue !important
+    @if $pro == 'p'
+      padding-bottom: $spaceValue !important
+  @if $side == 'l'
+    @if $pro == 'm'
+      margin-left: $spaceValue !important
+    @if $pro == 'p'
+      padding-left: $spaceValue !important
+  @if $side == 'r'
+    @if $pro == 'm'
+      margin-right: $spaceValue !important
+    @if $pro == 'p'
+      padding-right: $spaceValue !important
+  @if $side == 'x'
+    @if $pro == 'm'
+      margin-left: $spaceValue !important
+      margin-right: $spaceValue !important
+    @if $pro == 'p'
+      padding-left: $spaceValue !important
+      padding-right: $spaceValue !important
+  @if $side == 'y'
+    @if $pro == 'm'
+      margin-top: $spaceValue !important
+      margin-bottom: $spaceValue !important
+    @if $pro == 'p'
+      padding-top: $spaceValue !important
+      padding-bottom: $spaceValue !important
+
+// grid
+%container
+  // +px($gutter-width / 2) !default
+  +px(1.5rem)
+  +mx(auto)
+.container
+  max-width: $wrapWidth
+  @extend %container
+  &-fluid
+    width: 100%
+    @extend %container
+
+.row
+  +mx(-($gutter-width / 2))
+  display: flex
+  flex-wrap: wrap
+
+%col
+  position: relative
+  min-height: 1px
+  max-width: 100%
+  flex: 0 0 100%
+  +px($gutter-width / 2)
+
+@each $key ,$value in $grid-breakpoints
+  @for $i from 1 through $grid-num
+    @if not $value
+      .col-#{$i}
+        @extend %col
+    @else
+      .col-#{$key}-#{$i}
+        @extend %col
+
+@each $key, $value in $grid-breakpoints
+  @if not $value
+    @for $i from 1 to $grid-num
+      .col-#{$i}
+        max-width: 100% * ($i / $grid-num)
+        flex: 0 0 (100% * ($i / $grid-num))
+  @else
+    @media (min-width: $value)
+      @for $i from 1 to $grid-num
+        .col-#{$key}-#{$i}
+          max-width: 100% * ($i / $grid-num)
+          flex: 0 0 (100% * ($i / $grid-num))
+
+.no-gutters
+  +mx(0)
+  > .col,
+  > [class*="col-"]
+    +px(0)
+
+// spacing
+@each $key, $value in $grid-breakpoints
+  @if not $value
+    @each $pro in $property
+      @each $side in $sides
+        @each $spacKey, $spacValue in $spacers
+          .#{$pro}#{$side}-#{$spacKey}
+            +generate($pro, $side, $spacValue)
+  @else
+    @media (min-width: $value)
+      @each $pro in $property
+        @each $side in $sides
+          @each $spacKey, $spacValue in $spacers
+            .#{$pro}#{$side}-#{$key}-#{$spacKey}
+              +generate($pro, $side, $spacValue)
+
+//flexbox
+//displayflex
+@each $key, $value in $grid-breakpoints
+  @if not $value
+    @each $var in $displayFlex
+      .d-#{$var}
+        display: #{$var}
+  @else
+    @media (min-width: $value)
+      @each $var in $displayFlex
+        .d-#{$key}-#{$var}
+          display: #{$var}
+
+//flex-direction
+@each $key, $value in $grid-breakpoints
+  @if not $value
+    @each $var in $flex-direction
+      .flex-#{$var}
+        flex-direction: #{$var}
+  @else
+    @media (min-width: $value)
+      @each $var in $flex-direction
+        .flex-#{$key}-#{$var}
+          flex-direction: #{$var}
+
+//flex-wrap
+@each $key, $value in $grid-breakpoints
+  @if not $value
+    @each $var in $flex-wrap
+      .flex-#{$var}
+        flex-wrap: #{$var}
+  @else
+    @media (min-width: $value)
+      @each $var in $flex-wrap
+        .flex-#{$key}-#{$var}
+          flex-wrap: #{$var}
+
+//justify-content
+@each $key, $value in $grid-breakpoints
+  @if not $value
+    @each $var,$varflex in $justify-content
+      .justify-content-#{$var}
+        justify-content: #{$varflex}
+  @else
+    @media (min-width: $value)
+      @each $var,$varflex in $justify-content
+        .justify-content-#{$key}-#{$var}
+          justify-content: #{$varflex}
+
+//align-items
+@each $key, $value in $grid-breakpoints
+  @if not $value
+    @each $var,$varflex in $align-items
+      .align-items-#{$var}
+        align-items: #{$varflex}
+  @else
+    @media (min-width: $value)
+      @each $var,$varflex in $align-items
+        .align-items-#{$key}-#{$var}
+          align-items: #{$varflex}
+
+//align-content
+@each $key, $value in $grid-breakpoints
+  @if not $value
+    @each $var,$varflex in $align-content
+      .align-content-#{$var}
+        align-content: #{$varflex}
+  @else
+    @media (min-width: $value)
+      @each $var,$varflex in $align-content
+        .align-content-#{$key}-#{$var}
+          align-content: #{$varflex}
+
+//align-self
+@each $key, $value in $grid-breakpoints
+  @if not $value
+    @each $var,$varflex in $align-self
+      .align-self-#{$var}
+        align-self: #{$varflex}
+  @else
+    @media (min-width: $value)
+      @each $var,$varflex in $align-self
+        .align-self-#{$key}-#{$var}
+          align-self: #{$varflex}
+
+//order
+@each $key, $value in $grid-breakpoints
+  @if not $value
+    @for $i from 0 through 12
+      .order-#{$i}
+        order: #{$i}
+  @else
+    @media (min-width: $value)
+      @for $i from 0 through 12
+        .order-#{$key}-#{$i}
+          order: #{$i}
+

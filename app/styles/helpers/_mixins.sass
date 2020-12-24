@@ -1,0 +1,24 @@
+=size($w,$h:$w)
+  width: $w
+  height: $h
+
+=flexCenter
+  display: flex
+  justify-content: center
+  align-items: center
+
+// Breakpoints
+
+// 640px, 1024px, 1400px
+$breakpoints-up: ("medium": "40em", "large": "64em", "xlarge": "87.5em")  
+
+// 639px, 1023px, 1399px
+$breakpoints-down: ("small": "39.9375em", "medium": "63.9375em", "large": "87.4375em")
+
+=breakpoint-up($size)
+  @media screen and ( min-width: map-get($breakpoints-up, $size))
+    @content
+
+=breakpoint-down($size)
+  @media screen and ( max-width: map-get($breakpoints-down, $size))
+    @content

@@ -1,0 +1,35 @@
+//button
+button, .button
+  outline: none
+  position: relative
+  display: inline-block
+  background-image: $primaryGradient
+  font-weight: 400
+  // text-transform: capitalize
+  padding: 1rem 2.187rem
+  border: none
+  color: #fff
+  cursor: pointer
+  border-radius: 50px
+  transition: opacity .3s ease-in-out
+  overflow: hidden
+  &::before 
+    content: ''
+    position: absolute
+    display: inline-block
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: rgba(255,255,255,0.25)
+    opacity: 0
+    transition: opacity .2s ease-in-out
+  &:hover::before
+    opacity: 1
+  &:active
+    transform: scale(0.98)
+  
+  span
+    position: relative
+    z-index: 3
+  
