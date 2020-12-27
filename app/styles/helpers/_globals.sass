@@ -13,65 +13,78 @@ body
   font-weight: $font-regular
   color: $whiteColor
   font-family: $font-openSans
-  background-color: $darkBlue_mainBg
+  background-color: $darkBlue_headerBg
   overflow-x: hidden
 
-  +breakpoint-up(large)
-    font-size: $font-med
+  +breakpoint-up(medium)
+    font-size: $font-normal
 
   &.noscroll
     overflow: hidden
 
 h2,h3,h4
   margin-top: 0
-  line-height: 1.15
-  font-weight: 300
+  line-height: 1.35
+  font-family: $font-Raleway
+  font-weight: $font-blod
   color: $whiteColor
 
 h2
-  font-size: 2.31rem
-  margin-bottom: 1.5rem
-
-  +breakpoint-up(large)
+  font-size: $font-lg
+  margin:
+    top: 2.5rem
+    bottom: 1.5625rem
+  +breakpoint-up(medium)
     font-size: $font-xlg
+    margin-bottom: 2.5rem
 
 h3
   font-size: 1.875rem
   margin-bottom: 1.5625rem
 
-  +breakpoint-up(large)
+  +breakpoint-up(medium)
     font-size: 2.25rem
     margin-bottom: 2.25rem
 
 h4
   font-size: 1.25rem
   margin-bottom: 1.625rem
-  +breakpoint-up(large)
+  +breakpoint-up(medium)
     font-size: 1.5rem
     margin-bottom: 1.5rem
 
+%linkStyle
+  position: relative
+  transition: .3s
+  &::before
+    content: ""
+    display: inline-block
+    position: absolute
+    left: 0px
+    bottom: -3px
+    height: 1.5px
+    width: 0%
+    background-color: $whiteColor
+    transition: .3s
+  &:hover::before
+    width: 100%
 
 a, a:visited, a:hover
   text-decoration: none
   color: $whiteColor
+  &.link
+    @extend %linkStyle
+  
 
 .attribution
   font-size: 11px 
   text-align: center
   a 
-    position: relative
     color: $Cyan
-    transition: .3s
+    @extend %linkStyle
     &::before
-      content: ""
-      position: absolute
-      bottom: -3px
-      left: 0
-      width: 0px
-      height: 1.5px
       background-color: $Cyan
-      transition: .3s
-    &:hover::before
-      width: 100%
+
+
 
       

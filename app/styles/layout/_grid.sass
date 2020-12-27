@@ -57,8 +57,10 @@
 // grid
 %container
   // +px($gutter-width / 2) !default
-  +px(2.5rem)
+  +px(1.25rem)
   +mx(auto)
+  +breakpoint-up(medium)
+    +px(5rem)
 .container
   max-width: $wrapWidth
   @extend %container

@@ -3,16 +3,19 @@ button, .button
   outline: none
   position: relative
   display: inline-block
-  // background-image: $primaryGradient
-  font-weight: 400
+  background-image: $primaryGradient
+  font-weight: $font-blod
   // text-transform: capitalize
-  padding: 1rem 2.187rem
+  padding: 15px 20px
+  width: 100%
   border: none
   color: #fff
   cursor: pointer
   border-radius: 50px
   transition: opacity .3s ease-in-out
   overflow: hidden
+  +breakpoint-up(medium)
+      max-width: 200px
   &::before 
     content: ''
     position: absolute
@@ -28,8 +31,15 @@ button, .button
     opacity: 1
   &:active
     transform: scale(0.98)
+
+  &--large
+    @extend .button
+    padding: 20px
+    max-width: 240px
+    +breakpoint-up(medium)
+      max-width: 285px
   
-  span
-    position: relative
-    z-index: 3
+  // span
+  //   position: relative
+  //   z-index: 3
   
