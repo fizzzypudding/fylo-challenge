@@ -28,10 +28,14 @@
         top: 4.5625rem
         bottom: 4.5625rem
 
-  &__links //desktop menu
+  &__links
     li
+      font-size: $font-mini
+      +breakpoint-up(medium)
+          font-size: $font-normal
       &:not(:last-child)
         margin-right: 1.5625rem
         +breakpoint-up(medium)
           margin-right: 3.625rem
+      
 

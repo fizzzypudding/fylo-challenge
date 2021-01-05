@@ -1,0 +1,36 @@
+.feature
+  background-color: $darkBlue_mainBg
+  .container
+    max-width: 1040px
+    padding-bottom: 150px
+    +breakpoint-up(medium)
+      padding-bottom: 130px
+  //   +breakpoint-up(medium)
+  //     +px(5rem)
+    // +breakpoint-up(large)
+    //   +px(280px)
+  &__grid
+    display: grid
+    grid-template-columns: 1fr
+    gap: 80px 0px
+    margin: 0 auto
+
+    +breakpoint-up(medium)
+      grid-template-columns: repeat(2,1fr)
+      gap: 90px 10vw
+
+  &__items
+    text-align: center
+
+  &__img
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 5.625rem
+    margin-bottom: 2rem
+    +breakpoint-up(medium)
+      margin-bottom: 1.5rem
+
+  &__description
+    line-height: 1.7
+    font-size: $font-sm

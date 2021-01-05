@@ -4,7 +4,7 @@ button, .button
   position: relative
   display: inline-block
   background-image: $primaryGradient
-  font-weight: $font-blod
+  // font-weight: $font-blod
   // text-transform: capitalize
   padding: 15px 20px
   width: 100%
@@ -14,7 +14,7 @@ button, .button
   border-radius: 50px
   transition: opacity .3s ease-in-out
   overflow: hidden
-  +breakpoint-up(medium)
+  +breakpoint-up(large)
       max-width: 200px
   &::before 
     content: ''
@@ -38,6 +38,7 @@ button, .button
     max-width: 240px
     +breakpoint-up(medium)
       max-width: 285px
+      font-size: $font-med
   
   // span
   //   position: relative

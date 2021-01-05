@@ -1,0 +1,43 @@
+.signUp
+  position: absolute
+  background: transparent
+  width: 100%
+  transform: translateY(-160px)
+  z-index: 1
+
+  .container
+    +breakpoint-up(large)
+      max-width: 920px
+
+  &__block
+    text-align: center
+    background-color: $darkBlue_testimonialsBg
+    border-radius: 5px
+    box-shadow: 0px 0px 12px rgba(black,0.1)
+    padding: 45px 30px
+    +breakpoint-up(medium)
+      padding: 45px 60px
+
+    +breakpoint-up(large)
+      padding: 45px 80px
+
+  &__form
+    display: grid
+    grid-template-columns: 1fr
+    gap: 25px
+    margin-top: 2.25rem
+    +breakpoint-up(large)
+      grid-template-columns: 1fr 200px
+      gap: 30px
+      margin-top: 2.5rem
+
+  &__description
+    line-height: 1.7
+
+  &__email
+    outline: none
+    border: none
+    border-radius: 30px
+    padding: 1rem 2.25rem
+    font-size: 12px
+  

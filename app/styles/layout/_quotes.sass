@@ -1,0 +1,82 @@
+.quotes
+  background-color: $darkBlue_mainBg
+
+  .container
+    padding:
+      right: 46px
+      left: 46px
+      bottom: 336px
+    // max-width: 320px
+    +breakpoint-up(medium)
+      padding:
+        right: 80px
+        left: 80px
+        bottom: 360px
+      max-width: 1320px
+
+  &__grid
+    position: relative
+    display: grid
+    grid-template-columns: 1fr
+    gap: 1.5rem
+    +breakpoint-up(large)
+      grid-template-columns: repeat(3,1fr)
+      gap: 2.5rem
+      
+
+    &:first-child::before
+      content: url("../../app/images/bg-quotes.png")
+      transform: scale(0.7)
+      z-index: 0
+      position: absolute
+      top: -36px
+      left: 46px
+      +breakpoint-up(medium)
+        transform: scale(1)
+        top: -35px
+        left: 70px
+
+
+
+  &__card
+    position: relative
+    z-index: 1
+    background-color: $darkBlue_testimonialsBg
+    border-radius: 5px
+    padding: 1.75rem 1.125rem 1.125rem
+    box-shadow: 0px 0px 12px rgba(black,0.1)
+    +breakpoint-up(medium)
+      padding: 2.75rem 1.5rem 1.5rem
+
+  &__content
+    font-size: 0.6875rem
+    letter-spacing: 0.5px
+    line-height: 1.7
+    margin-bottom: 1.625rem
+    +breakpoint-up(medium)
+      font-size: $font-sm
+      margin-bottom: 1.25rem
+
+  &__author
+    display: flex
+    align-items: center
+
+  &__author-img
+    +size(40px)
+    border-radius: 50%
+    overflow: hidden
+    margin-right: 12px
+    img
+      width: 100%
+
+  &__author-profile
+    display: flex
+    flex-direction: column
+
+  &__author-name
+    font-size: 0.625rem
+    font-weight: $font-blod
+    margin-bottom: 5px
+
+  &__author-title
+    font-size: 0.5rem
